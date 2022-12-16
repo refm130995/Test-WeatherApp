@@ -14,9 +14,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-          
-      - name: Install Yarn
-        run: curl -o- -L https://yarnpkg.com/install.sh | bash
 
       - run: npm ci
       - run: npm run build
