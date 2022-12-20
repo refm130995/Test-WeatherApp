@@ -11,6 +11,7 @@ function Forecast({ title, items }) {
 
       <div className="flex 2xl:flex-row xl:flex-row lg:flex-row flex-col items-center justify-between text-white">
         {items.map((item, index) => (
+          
           <div
             key={index}
             className="flex flex-col items-center justify-center"
@@ -21,8 +22,16 @@ function Forecast({ title, items }) {
               className="w-12 my-1"
               alt=""
             />
-            <p className="font-medium">{`${item.temp.toFixed()}°`}</p>
-          <hr className="my-4 w-full"/>
+            {item.minTemp && item.maxTemp ? (
+              <>
+                <p className="font-medium">min: {`${item.minTemp.toFixed()}°`}</p>
+                <p className="font-medium">max: {`${item.maxTemp.toFixed()}°`}</p>
+              </>
+            ) : (
+              <p className="font-medium">{`${item.temp.toFixed()}°`}</p>
+            )}
+
+            <hr className="my-4 w-full" />
           </div>
         ))}
       </div>
